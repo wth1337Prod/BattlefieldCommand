@@ -1,0 +1,120 @@
+# Battlefield Command
+# Конфигурационный файл карт
+
+# Предустановленные карты
+maps:
+  # Пример карты для генерации "Заброшенная крепость"
+  abandoned_fortress:
+    name: "Заброшенная крепость"
+    description: "Симметричная карта с разрушенной крепостью посередине и множеством укрытий"
+    theme: "ruins" # Тема для генерации (ruins, jungle, winter, desert)
+    
+    # Настройки местности
+    terrain:
+      base_biome: "PLAINS" # Тип местности для генерации
+      add_trees: true # Добавлять ли деревья
+      tree_density: 0.05 # Плотность деревьев (0.0-1.0)
+      add_hills: true # Добавлять ли холмы
+      hill_height: 5 # Максимальная высота холмов
+      water_pools: false # Добавлять ли водоемы
+    
+    # Настройки флагов
+    capture_points:
+      num_points: 5 # Количество контрольных точек (не считая основные)
+      layout: "line" # Расположение точек (line, circle, random)
+      reward_multiplier: 1.0 # Множитель очков за удержание
+      
+    # Дополнительные структуры
+    structures:
+      center_fortress: true # Крепость в центре карты
+      bunkers: true # Добавлять бункеры для укрытия
+      watchtowers: true # Добавлять сторожевые башни
+      
+  # Пример карты "Снежная база"
+  snow_outpost:
+    name: "Снежная база"
+    description: "Зимняя карта с труднопроходимой местностью и ледяными укреплениями"
+    theme: "winter"
+    
+    # Настройки местности
+    terrain:
+      base_biome: "SNOWY_PLAINS"
+      add_trees: true
+      tree_density: 0.1
+      add_hills: true
+      hill_height: 8
+      water_pools: true
+      frozen_lakes: true
+    
+    # Настройки флагов
+    capture_points:
+      num_points: 3
+      layout: "circle"
+      reward_multiplier: 1.5
+      
+    # Дополнительные структуры
+    structures:
+      ice_castle: true
+      frozen_bunkers: true
+      ice_bridges: true
+      
+# Настройки генератора карт
+generator:
+  # Дополнительные настройки для структуры базы
+  base:
+    spawn_room:
+      size: 10 # Размер комнаты спавна
+      height: 4 # Высота комнаты спавна
+      walls_thickness: 2 # Толщина стен комнаты спавна
+      add_roof: true # Добавлять ли крышу
+      entry_width: 3 # Ширина входа/выхода
+      hidden: true # Скрытая зона (закрытая от внешнего обзора)
+    
+    ammo_station:
+      size: 5 # Размер станции боеприпасов
+      height: 3 # Высота станции боеприпасов
+      chest_items: true # Добавлять ли предметы в сундук автоматически
+    
+    heal_station:
+      size: 5 # Размер станции лечения
+      height: 3 # Высота станции лечения
+      beacon_enabled: true # Включить маяк для эффекта лечения
+    
+    defenses:
+      wall_height: 4 # Высота защитных стен
+      add_traps: false # Добавлять ловушки
+      add_barricades: true # Добавлять баррикады
+
+  # Настройки для создания укрытий
+  cover:
+    small:
+      width: 3
+      height: 2
+      depth: 2
+    medium:
+      width: 5
+      height: 2
+      depth: 3
+    large:
+      width: 7
+      height: 3
+      depth: 5
+
+  # Настройки темы карты
+  themes:
+    ruins:
+      main_material: MOSSY_COBBLESTONE
+      accent_material: CRACKED_STONE_BRICKS
+      floor_material: GRAVEL
+    jungle:
+      main_material: MOSSY_STONE_BRICKS
+      accent_material: JUNGLE_LOG
+      floor_material: DIRT
+    winter:
+      main_material: PACKED_ICE
+      accent_material: SNOW_BLOCK
+      floor_material: SNOW
+    desert:
+      main_material: SANDSTONE
+      accent_material: CUT_SANDSTONE
+      floor_material: SAND 

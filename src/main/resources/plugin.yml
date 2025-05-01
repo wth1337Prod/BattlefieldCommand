@@ -1,0 +1,29 @@
+name: BattlefieldCommand
+version: '1337'
+main: org.comm.battlefieldCommand.BattlefieldCommand
+api-version: '1.21'
+softdepend: []
+
+commands:
+  bc:
+    description: Основная команда плагина Battlefield Command
+    usage: /bc [setup|join|leave|start|stop|restart|config|help|info|class|spectate]
+    aliases: [battlefield]
+    
+  voice:
+    description: Управление голосовым чатом в игре
+    usage: /voice [channel|toggle|help|status]
+    aliases: [vc]
+    
+  radio:
+    description: Отправка радиосообщений для быстрой коммуникации в команде
+    usage: /radio [команда] [аргументы]
+    aliases: [r]
+
+permissions:
+  bc.admin:
+    description: Доступ к административным командам плагина
+    default: op
+  bc.player:
+    description: Доступ к игровым командам плагина
+    default: true

@@ -1,0 +1,71 @@
+# Battlefield Command
+# Основной конфигурационный файл
+
+# Настройки генерации карты
+map_generator:
+  # Основные размеры
+  base_size: 30 # Размер основания базы
+  distance_between_bases: 150 # Расстояние между базами
+  num_capture_points: 5 # Количество контрольных точек (не считая основные флаги баз)
+  capture_point_radius: 5 # Радиус захвата контрольной точки
+
+  # Структура базы
+  base_height: 3 # Высота стен базы
+  spawn_protection_radius: 10 # Радиус защиты зоны спавна
+  ammo_station_enabled: true # Включить станцию боеприпасов
+  heal_station_enabled: true # Включить станцию лечения
+  
+  # Настройки укрытий и укреплений
+  num_cover_structures: 5 # Количество укрытий на базе
+  max_cover_height: 3 # Максимальная высота укрытий
+  
+  # Настройки материалов
+  team_a_color: RED_CONCRETE # Материал для цветового обозначения команды A
+  team_b_color: BLUE_CONCRETE # Материал для цветового обозначения команды B
+  base_floor_material: STONE_BRICKS # Материал для пола базы
+  base_wall_material: COBBLESTONE_WALL # Материал для стен базы
+  flag_post_material: QUARTZ_PILLAR # Материал для столба флага
+
+# Настройки игрового процесса
+game:
+  max_game_time: 1200 # Максимальное время игры в секундах (20 минут)
+  respawn_wave_interval: 15 # Интервал волн респауна в секундах
+  respawn_wave_size: 5 # Максимальный размер группы респауна
+  points_per_kill: 10 # Очки за убийство
+  points_per_assist: 5 # Очки за помощь
+  points_per_capture_second: 1 # Очки за секунду удержания точки
+  
+  # Условия победы
+  target_score: 500 # Целевое количество очков для победы
+  
+# Настройки классов
+classes:
+  assault:
+    health: 20 # Базовое здоровье
+    speed: 0.2 # Скорость передвижения
+    dash_cooldown: 30 # Кулдаун способности рывка в секундах
+    dash_distance: 5 # Дистанция рывка
+    
+  sniper:
+    health: 16 # Базовое здоровье
+    speed: 0.18 # Скорость передвижения
+    invisibility_cooldown: 60 # Кулдаун способности невидимости в секундах
+    invisibility_duration: 10 # Длительность невидимости в секундах
+    
+  engineer:
+    health: 18 # Базовое здоровье
+    speed: 0.19 # Скорость передвижения
+    repair_drone_cooldown: 90 # Кулдаун вызова ремонтного дрона в секундах
+    repair_drone_duration: 20 # Длительность работы дрона в секундах
+
+# Настройки киллстриков (за серию убийств)
+killstreaks:
+  enabled: true # Включить систему киллстриков
+  killstreak_3: "airstrike" # Награда за 3 убийства подряд (воздушная бомбардировка)
+  killstreak_5: "recon_drone" # Награда за 5 убийств подряд (разведывательный дрон)
+  killstreak_7: "juggernaut" # Награда за 7 убийств подряд (усиленный бронежилет)
+
+# Системные настройки
+server:
+  debug_mode: false # Режим отладки
+  lobby: # Координаты лобби сервера (заполняется автоматически при первом запуске) 
